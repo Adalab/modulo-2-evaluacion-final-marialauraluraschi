@@ -8,8 +8,7 @@ let inputValue = '';
 //*Manejadora
 function handleSearch(event) {
   event.preventDefault();
-  const searched = searchInput.value;
-  inputValue = searched.toLowerCase();
+  inputValue = searchInput.value;
   let url = `https://api.tvmaze.com/search/shows?q=${inputValue}`;
   fetch(url)
     .then((response) => response.json())
