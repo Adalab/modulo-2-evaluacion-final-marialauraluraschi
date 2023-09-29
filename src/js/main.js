@@ -38,7 +38,7 @@ function renderShow(match) {
 
 //*Renderizadora de lista de series
 function renderMatches(matches) {
-  main.innerHTML += `<ul class="js-match-list"></ul>`;
+  main.innerHTML = `<ul class="js-match-list"></ul>`;
   let matchList = document.querySelector('.js-match-list');
   for (const match of matches) {
     matchList.innerHTML += renderShow(match);
