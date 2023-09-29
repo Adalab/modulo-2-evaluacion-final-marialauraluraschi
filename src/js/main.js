@@ -21,12 +21,14 @@ function handleSearch(event) {
 function renderShow(match) {
   let showId = match.show.id;
   let showName = match.show.name;
-  let showPic = match.show.image ? match.show.image.medium : `https://via.placeholder.com/210x295/ffffff/666666/?text=${showName.toUpperCase()}`;
+  let showPic = match.show.image
+    ? match.show.image.medium
+    : `https://via.placeholder.com/210x295/ffffff/666666/?text=${showName}`;
   let matchItem = '';
   matchItem += `<li class="js-match-item" id="${showId}"><article>
   <img
   src=${showPic}
-  alt="show´s picture"
+  alt="Picture of ${showName}"
   />
   <h3>${showName.toUpperCase()} </h3>
    </article>
@@ -41,8 +43,19 @@ function renderMatches(matches) {
   for (const match of matches) {
     matchList.innerHTML += renderShow(match);
   }
-  const matchItems=document.querySelectorAll('.js-match-item');
-  console.log(matchItems);
+  addShowListeners();
 }
+//*Manejadora del click en show
+function handleShow(event) {
+  console.log(event.currentTarget);
+}
+//*Arega event listeners a cada show
+function addShowListeners() {
+  const matchItems = document.querySelectorAll('.js-match-item');
+  for (const item of matchItems) {
+    item.addEventListener('click', handleShow);
+  }
+}
+
 //*Listener
 searchBtn.addEventListener('click', handleSearch);
