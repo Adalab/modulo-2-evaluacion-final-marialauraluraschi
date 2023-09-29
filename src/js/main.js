@@ -17,7 +17,7 @@ function handleSearch(event) {
     .then((response) => response.json())
     .then((data) => {
       matches = data;
-      renderList(matches);
+      renderList(matches, main);
     });
 }
 
@@ -41,9 +41,9 @@ function renderShow(item) {
 }
 
 //*Renderizadora de lista de series
-function renderList(list) {
-  main.innerHTML = `<ul class="js-match-list"></ul>`;
-  let matchList = document.querySelector('.js-match-list');
+function renderList(list, tag) {
+  tag.innerHTML = `<ul class="js-list"></ul>`;
+  let matchList = document.querySelector('.js-list');
   for (const item of list) {
     matchList.innerHTML += renderShow(item);
   }
@@ -53,13 +53,10 @@ function renderList(list) {
 function handleShow(event) {
   const clicked = event.currentTarget;
   const indexFav = favs.indexOf(clicked);
-  console.log(indexFav);
-  console.log(clicked);
-
   if (indexFav === -1) {
     favs.push(clicked);
   } else {
-    favs.splice(indexFav,1);
+    favs.splice(indexFav, 1);
   }
 }
 //*Arega event listeners a cada show
