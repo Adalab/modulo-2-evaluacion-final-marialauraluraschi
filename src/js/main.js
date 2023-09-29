@@ -5,7 +5,7 @@ const searchBtn = document.querySelector('.js-search-btn'); //botón buscar
 const main = document.querySelector('.js-search');
 let inputValue = '';
 
-//*Manejadora
+//*Manejadora del click en search
 function handleSearch(event) {
   event.preventDefault();
   inputValue = searchInput.value;
@@ -17,11 +17,13 @@ function handleSearch(event) {
     });
 }
 
+//*Renderizadora de serie
 function renderShow(match) {
+  let showId = match.show.id;
   let showName = match.show.name;
   let showPic = match.show.image.medium;
-  let html = '';
-  html += `<li><article>
+  let matchItem = '';
+  matchItem += `<li class="js-match-item" id="${showId}"><article>
   <img
   src=${showPic}
   alt="show´s picture"
@@ -29,9 +31,10 @@ function renderShow(match) {
   <h3>${showName.toUpperCase()} </h3>
    </article>
  </li>`;
-  return html;
+  return matchItem;
 }
 
+//*Renderizadora de lista de series
 function renderMatches(matches) {
   main.innerHTML += `<ul class="js-match-list"></ul>`;
   let matchList = document.querySelector('.js-match-list');
