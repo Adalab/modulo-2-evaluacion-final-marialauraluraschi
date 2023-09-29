@@ -22,19 +22,21 @@ function renderShow(match) {
   let showPic = match.show.image.medium;
   let html = '';
   html += `<li><article>
-   <h3>${showName.toUpperCase()} </h3>
-     <img
-       src=${showPic}
-       alt="show´s picture"
-     />
+  <img
+  src=${showPic}
+  alt="show´s picture"
+  />
+  <h3>${showName.toUpperCase()} </h3>
    </article>
  </li>`;
   return html;
 }
 
 function renderMatches(matches) {
+  main.innerHTML += `<ul class="js-match-list"></ul>`;
+  let matchList = document.querySelector('.js-match-list');
   for (const match of matches) {
-    main.innerHTML += renderShow(match);
+    matchList.innerHTML += renderShow(match);
   }
 }
 //*Listener
