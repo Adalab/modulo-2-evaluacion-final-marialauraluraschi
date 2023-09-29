@@ -21,7 +21,7 @@ function handleSearch(event) {
 function renderShow(match) {
   let showId = match.show.id;
   let showName = match.show.name;
-  let showPic = match.show.image.medium;
+  let showPic = match.show.image ? match.show.image.medium : `https://via.placeholder.com/210x295/ffffff/666666/?text=${showName.toUpperCase()}`;
   let matchItem = '';
   matchItem += `<li class="js-match-item" id="${showId}"><article>
   <img
@@ -41,6 +41,8 @@ function renderMatches(matches) {
   for (const match of matches) {
     matchList.innerHTML += renderShow(match);
   }
+  const matchItems=document.querySelectorAll('.js-match-item');
+  console.log(matchItems);
 }
 //*Listener
 searchBtn.addEventListener('click', handleSearch);
