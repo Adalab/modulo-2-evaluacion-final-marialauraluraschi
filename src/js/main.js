@@ -4,8 +4,8 @@ const searchInput = document.querySelector('.js-search-input'); //input
 const searchBtn = document.querySelector('.js-search-btn'); //botón buscar
 const main = document.querySelector('.js-main');
 const aside = document.querySelector('.js-aside');
-let favs=[];
-let matches=[];
+let favs = [];
+let matches = [];
 let inputValue = '';
 
 //*Manejadora del click en search
@@ -51,8 +51,16 @@ function renderList(list) {
 }
 //*Manejadora del click en show
 function handleShow(event) {
-  const id = event.currentTarget.id;
-  console.log(id);
+  const clicked = event.currentTarget;
+  const indexFav = favs.indexOf(clicked);
+  console.log(indexFav);
+  console.log(clicked);
+
+  if (indexFav === -1) {
+    favs.push(clicked);
+  } else {
+    favs.splice(indexFav,1);
+  }
 }
 //*Arega event listeners a cada show
 function addShowListeners() {
