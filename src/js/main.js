@@ -2,7 +2,10 @@
 //*Constantes:
 const searchInput = document.querySelector('.js-search-input'); //input
 const searchBtn = document.querySelector('.js-search-btn'); //botón buscar
-const main = document.querySelector('.js-search');
+const main = document.querySelector('.js-main');
+const aside = document.querySelector('.js-aside');
+let favs=[];
+let matches=[];
 let inputValue = '';
 
 //*Manejadora del click en search
@@ -13,19 +16,20 @@ function handleSearch(event) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      renderMatches(data);
+      matches = data;
+      renderList(matches);
     });
 }
 
 //*Renderizadora de serie
-function renderShow(match) {
-  let showId = match.show.id;
-  let showName = match.show.name;
-  let showPic = match.show.image
-    ? match.show.image.medium
+function renderShow(item) {
+  let showId = item.show.id;
+  let showName = item.show.name;
+  let showPic = item.show.image
+    ? item.show.image.medium
     : `https://via.placeholder.com/210x295/ffffff/666666/?text=${showName}`;
-  let matchItem = '';
-  matchItem += `<li class="js-match-item" id="${showId}"><article>
+  let showItem = '';
+  showItem += `<li class="js-item" id="${showId}"><article>
   <img
   src=${showPic}
   alt="Picture of ${showName}"
@@ -33,26 +37,27 @@ function renderShow(match) {
   <h3>${showName.toUpperCase()} </h3>
    </article>
  </li>`;
-  return matchItem;
+  return showItem;
 }
 
 //*Renderizadora de lista de series
-function renderMatches(matches) {
+function renderList(list) {
   main.innerHTML = `<ul class="js-match-list"></ul>`;
   let matchList = document.querySelector('.js-match-list');
-  for (const match of matches) {
-    matchList.innerHTML += renderShow(match);
+  for (const item of list) {
+    matchList.innerHTML += renderShow(item);
   }
   addShowListeners();
 }
 //*Manejadora del click en show
 function handleShow(event) {
-  console.log(event.currentTarget);
+  const id = event.currentTarget.id;
+  console.log(id);
 }
 //*Arega event listeners a cada show
 function addShowListeners() {
-  const matchItems = document.querySelectorAll('.js-match-item');
-  for (const item of matchItems) {
+  const items = document.querySelectorAll('.js-item');
+  for (const item of items) {
     item.addEventListener('click', handleShow);
   }
 }
