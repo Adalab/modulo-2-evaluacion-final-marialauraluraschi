@@ -2,6 +2,7 @@
 //*Constantes:
 const searchInput = document.querySelector('.js-search-input'); //input
 const searchBtn = document.querySelector('.js-search-btn'); //botón buscar
+const main = document.querySelector('.js-search');
 let inputValue = '';
 
 //*Manejadora
@@ -12,17 +13,29 @@ function handleSearch(event) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      for (let i = 0; i < data.length; i++) {
-        let showId= data[i].show.id;
-        console.log(showId);
-        let showName= data[i].show.name;
-        console.log(showName);
-        let showPic= data[i].show.image.medium;
-        console.log(showPic);
-      }
+      renderMatches(data);
     });
 }
 
+function renderShow(match) {
+  let showName = match.show.name;
+  let showPic = match.show.image.medium;
+  let html = '';
+  html += `<li><article>
+   <h3>${showName.toUpperCase()} </h3>
+     <img
+       src=${showPic}
+       alt="show´s picture"
+     />
+   </article>
+ </li>`;
+  return html;
+}
+
+function renderMatches(matches) {
+  for (const match of matches) {
+    main.innerHTML += renderShow(match);
+  }
+}
 //*Listener
 searchBtn.addEventListener('click', handleSearch);
