@@ -7,15 +7,10 @@
   <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
-  <header class="header">
-    <h1 class="header__title">Buscador de series</h1>
-    <form class="header__search">
-      <input class="header__search--input js-search-input" type="text" />
-      <button class="header__search--btn js-search-btn">Search</button>
-    </form>
-  </header>
+  <include src="./partials/header.html" title="Buscador de series"></include>
   <main class="matches js-main"></main>
   <aside class="favs js-aside"><h2>Mis series favoritas:</h2></aside>
+  <include src="./partials/footer.html"></include>
   <script src="./assets/js/main.js"></script>
 </body>
 </html>
