@@ -16,7 +16,7 @@ function handleSearch(event) {
     .then((response) => response.json())
     .then((data) => {
       matches = data;
-      renderList(matches, main);
+      renderList(matches, main, 'matches');
     });
 }
 
@@ -40,14 +40,15 @@ function renderShow(item) {
 }
 
 //*Renderizadora de lista de series
-function renderList(list, tag) {
-  tag.innerHTML = `<ul class="js-list"></ul>`;
-  let showList = document.querySelector('.js-list');
-  for (const item of list) {
+function renderList(array, tag, list) {
+  tag.innerHTML = `<ul class="js-${list}"></ul>`;
+  let showList = document.querySelector(`.js-${list}`);
+  for (const item of array) {
     showList.innerHTML += renderShow(item);
   }
   addShowListeners();
 }
+
 //*Manejadora del click en show
 function handleShow(event) {
   const clicked = event.currentTarget;
@@ -60,7 +61,7 @@ function handleShow(event) {
     favs.splice(indexFav, 1);
   }
   console.log(favs);
-  renderList(favs, aside);
+  renderList(favs, aside, 'favs');
 }
 
 //*Arega event listeners a cada show
