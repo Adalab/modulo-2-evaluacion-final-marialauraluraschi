@@ -60,6 +60,7 @@ function handleShow(event) {
   } else {
     favs.splice(indexFav, 1);
   }
+  clicked.classList.toggle('selected');
   renderList(favs, aside, 'favs');
 }
 

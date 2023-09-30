@@ -1,16 +1,22 @@
 .header {
-  background-color: lightyellow;
+  @include sections;
+  background-color: $yellow;
   width: 100%;
-  height: 8vh;
-  &__search{
+  height: 9vh;
+  &__title {
+    @include text($font-main, 800, 2.5rem, $dark);
+  }
+  &__search {
     display: flex;
     justify-content: space-evenly;
     position: fixed;
-    &--input{
+    &--input {
       background-color: transparent;
+      @include sections;
     }
-    &--btn{
-      color: black;
+    &--btn {
+      background-color: $purple;
+      @include sections;
     }
   }
 }

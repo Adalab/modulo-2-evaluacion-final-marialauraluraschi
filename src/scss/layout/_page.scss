@@ -1,10 +1,9 @@
 body {
   display: flex;
   flex-wrap: wrap;
-  padding: 0.5rem;
   height: 100vh;
-  background-color: $color-bg;
-  font-family: $font-main;
+  background-color: $light-yellow;
+
   ul{
     list-style: none;
   }

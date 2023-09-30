@@ -1,9 +1,9 @@
-.favs{
-    min-height: 92vh;
+.favs {
+  @include sections;
+  text-align: center;
   width: 30%;
-  background-color: coral;
-  img {
-    width: 80%;
+  background-color: $lila;
+  img{
+    @include images;
   }
-  
-  }
+}

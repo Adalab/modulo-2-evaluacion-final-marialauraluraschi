@@ -1,6 +1,16 @@
-.matches{
-    min-height: 92vh;
-    width: 70%;
-    background-color: lightblue;
-    
+.matches {
+  @include sections;
+  text-align: center;
+  min-height: 92vh;
+  width: 65%;
+  color: $light-yellow;
+  background-color: $purple;
+  img{
+    @include images;
   }
+}
+
+.selected{
+  background-color: $light-yellow;
+  color: $purple;
+}
