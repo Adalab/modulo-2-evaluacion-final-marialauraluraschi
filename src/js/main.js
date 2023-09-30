@@ -53,7 +53,7 @@ function handleShow(event) {
   const clicked = event.currentTarget;
   const clickedId = parseInt(clicked.id);
   const clickedMatch = matches.find((item) => item.show.id === clickedId);
-  const indexFav = favs.indexOf(clicked);
+  const indexFav = favs.indexOf(clickedMatch);
   if (indexFav === -1) {
     favs.push(clickedMatch);
   } else {
