@@ -60,7 +60,6 @@ function handleShow(event) {
   } else {
     favs.splice(indexFav, 1);
   }
-  console.log(favs);
   renderList(favs, aside, 'favs');
 }
 
