@@ -7,12 +7,12 @@ const aside = document.querySelector('.js-aside');
 let favs = [];
 let matches = [];
 let inputValue = '';
-
+renderList(favs, aside);
 //*Manejadora del click en search
 function handleSearch(event) {
   event.preventDefault();
   inputValue = searchInput.value;
-  fetch(`//api.tvmaze.com/search/shows?q=${inputValue}` )
+  fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
     .then((response) => response.json())
     .then((data) => {
       matches = data;
@@ -41,28 +41,28 @@ function renderShow(item) {
 
 //*Renderizadora de lista de series
 function renderList(list, tag) {
-  //let listName = 'list';
-  //o pnerle un tercer parámetro que sea string
-  //checkear el css a ver si realmente no se está pintando
-  //PORQUE HAY QUE RECORRER EL ARRAY DE FAVS PARA PODER PINTARLO O NO APLICA RENDER ITEM?
   tag.innerHTML = `<ul class="js-list"></ul>`;
-  let matchList = document.querySelector('.js-list');
+  let showList = document.querySelector('.js-list');
   for (const item of list) {
-    matchList.innerHTML += renderShow(item);
+    showList.innerHTML += renderShow(item);
   }
   addShowListeners();
 }
 //*Manejadora del click en show
 function handleShow(event) {
   const clicked = event.currentTarget;
+  const clickedId = parseInt(clicked.id);
+  const clickedMatch = matches.find((item) => item.show.id === clickedId);
   const indexFav = favs.indexOf(clicked);
   if (indexFav === -1) {
-    favs.push(clicked);
+    favs.push(clickedMatch);
   } else {
     favs.splice(indexFav, 1);
   }
   console.log(favs);
+  renderList(favs, aside);
 }
+
 //*Arega event listeners a cada show
 function addShowListeners() {
   const items = document.querySelectorAll('.js-item');
