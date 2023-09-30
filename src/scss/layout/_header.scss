@@ -1,5 +1,16 @@
-.page__header {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+.header {
+  background-color: lightyellow;
+  width: 100%;
+  height: 8vh;
+  &__search{
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    &--input{
+      background-color: transparent;
+    }
+    &--btn{
+      color: black;
+    }
+  }
 }

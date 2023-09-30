@@ -12,8 +12,7 @@ let inputValue = '';
 function handleSearch(event) {
   event.preventDefault();
   inputValue = searchInput.value;
-  let url = `//api.tvmaze.com/search/shows?q=${inputValue}`;
-  fetch(url)
+  fetch(`//api.tvmaze.com/search/shows?q=${inputValue}` )
     .then((response) => response.json())
     .then((data) => {
       matches = data;
@@ -42,6 +41,10 @@ function renderShow(item) {
 
 //*Renderizadora de lista de series
 function renderList(list, tag) {
+  //let listName = 'list';
+  //o pnerle un tercer parámetro que sea string
+  //checkear el css a ver si realmente no se está pintando
+  //PORQUE HAY QUE RECORRER EL ARRAY DE FAVS PARA PODER PINTARLO O NO APLICA RENDER ITEM?
   tag.innerHTML = `<ul class="js-list"></ul>`;
   let matchList = document.querySelector('.js-list');
   for (const item of list) {
@@ -58,6 +61,7 @@ function handleShow(event) {
   } else {
     favs.splice(indexFav, 1);
   }
+  console.log(favs);
 }
 //*Arega event listeners a cada show
 function addShowListeners() {

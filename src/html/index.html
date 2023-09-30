@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Buscador de series</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
-  <header>
-    <h1 class="title">Buscador de series</h1>
-    <form>
-      <input class="js-search-input" type="text" />
-      <button class="js-search-btn">Search</button>
+  <header class="header">
+    <h1 class="header__title">Buscador de series</h1>
+    <form class="header__search">
+      <input class="header__search--input js-search-input" type="text" />
+      <button class="header__search--btn js-search-btn">Search</button>
     </form>
   </header>
-  <main class="js-main"></main>
-  <aside class="js-aside"></aside>
+  <main class="matches js-main"></main>
+  <aside class="favs js-aside"><h2>Mis series favoritas:</h2></aside>
   <script src="./assets/js/main.js"></script>
 </body>
 </html>

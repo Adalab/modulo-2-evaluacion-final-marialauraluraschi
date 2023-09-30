@@ -1,7 +1,23 @@
 body {
-  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
   height: 100vh;
-  background-image: url('../images/bg-adalab.png');
   background-color: $color-bg;
   font-family: $font-main;
+  ul{
+    list-style: none;
+  }
+}
+.matches{
+  min-height: 92vh;
+  width: 70%;
+  background-color: lightblue;
+  
+}
+.favs{
+  min-height: 92vh;
+width: 30%;
+background-color: coral;
+
 }
