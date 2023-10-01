@@ -1,7 +1,7 @@
 'use strict';
 //*Constantes:
-const searchInput = document.querySelector('.js-search-input'); //input
-const searchBtn = document.querySelector('.js-search-btn'); //botón buscar
+const searchInput = document.querySelector('.js-search-input');
+const searchBtn = document.querySelector('.js-search-btn');
 const main = document.querySelector('.js-main');
 const aside = document.querySelector('.js-aside');
 let favs = [];

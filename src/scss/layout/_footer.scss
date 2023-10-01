@@ -1,8 +1,11 @@
 .page__footer {
+  @include text($font-main, 600, 1.5rem, $purple);
   height: 3vh;
   display: flex;
+  align-content: center;
+  justify-content: center;
   align-self: flex-end;
-  width: 100%;
   background-color: $yellow;
   @include box;
+  width: 100%;
 }

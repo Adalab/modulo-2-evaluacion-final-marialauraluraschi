@@ -1,10 +1,12 @@
 .favs {
-  @include text($font-main, 600, 1.5rem, $yellow);
+  @include text($font-main, 400, 1.5rem, $yellow);
+  @include textDeep ($purple, $dark);
   @include box;
   text-align: center;
   width: 30%;
-  background-color: $lila;
+  background:linear-gradient($lila,$purpleT);
   img{
     @include box;
+    margin-top: 3rem;
   }
 }

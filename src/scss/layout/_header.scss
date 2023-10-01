@@ -1,22 +1,31 @@
 .header {
+  padding: 0.5rem;
   @include box;
-  background-color: $yellow;
+  background-color: $yellowT;
   width: 100%;
-  height: 10vh;
+  height: 15vh;
   &__title {
     @include text($font-main, 800, 2.5rem, $purple);
+    @include textDeep ($lilaT, $pinkT);
   }
   &__search {
     display: flex;
-    justify-content: space-evenly;
+    gap: 1rem;
+    margin-top: 0.5rem;
     position: fixed;
     &--input {
-      background-color: transparent;
+      padding: 0 1rem;
+      border: none;
+      border-radius: 1.5rem;
+      background-color: $pinkT;
+      @include text($font-main, 600, 1.5rem, $dark);
     }
     &--btn {
-      padding: 0.25rem;
-      @include text($font-main, 600, 2rem, $light-yellow);
-      background-color: $purple;
+      border: solid 0.1rem $purpleT;
+      border-radius: 3rem;
+      padding: 0.25rem 1rem;
+      @include text($font-main, 800, 1.5rem, $dark);
+      background-color: $pinkT;
     }
   }
 }
