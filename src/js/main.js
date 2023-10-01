@@ -7,7 +7,15 @@ const aside = document.querySelector('.js-aside');
 let favs = [];
 let matches = [];
 let inputValue = '';
+
+// *Recuperar los favoritos de localStorage
+let favsJSON = localStorage.getItem('favoritos');
+if (favsJSON !== null) {
+  favs = JSON.parse(favsJSON);
+}
+
 renderList(favs, aside);
+
 //*Manejadora del click en search
 function handleSearch(event) {
   event.preventDefault();
@@ -62,8 +70,9 @@ function handleShow(event) {
     favs.splice(indexFav, 1);
     clicked.classList.remove('selected');
   }
+  let favsJSON = JSON.stringify(favs);
+  localStorage.setItem('favoritos', favsJSON);
   renderList(favs, aside, 'favs');
-  console.log(favs);
 }
 
 //*Arega event listeners a cada show
