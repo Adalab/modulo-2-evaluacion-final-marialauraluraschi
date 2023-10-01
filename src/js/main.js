@@ -54,14 +54,17 @@ function handleShow(event) {
   const clicked = event.currentTarget;
   const clickedId = parseInt(clicked.id);
   const clickedMatch = matches.find((item) => item.show.id === clickedId);
-  const indexFav = favs.indexOf(clickedMatch);
+  const indexFav = favs.findIndex((item) => item.show.id === clickedId);
+  // const indexFav = favs.indexOf(clickedMatch);
   if (indexFav === -1) {
     favs.push(clickedMatch);
+    clicked.classList.add('selected');
   } else {
     favs.splice(indexFav, 1);
+    clicked.classList.remove('selected');
   }
-  clicked.classList.toggle('selected');
   renderList(favs, aside, 'favs');
+  console.log(favs);
 }
 
 //*Arega event listeners a cada show
