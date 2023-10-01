@@ -1,15 +1,18 @@
 .matches {
-  @include sections;
+  @include text($font-main, 400, 2rem, $light-yellow);
+  min-height: 82vh;
+  @include box;
   text-align: center;
   width: 65%;
-  color: $light-yellow;
   background-color: $purple;
   img{
-    @include images;
+    @include box;
+    margin-top: 3rem;
   }
 }
 
 .selected{
-  background-color: $light-yellow;
-  color: $purple;
+  @include text($font-main, 600, 2rem, $yellow);
+  background-color: $lila;
+  border: solid 0.5rem $yellow;
 }

@@ -55,7 +55,6 @@ function handleShow(event) {
   const clickedId = parseInt(clicked.id);
   const clickedMatch = matches.find((item) => item.show.id === clickedId);
   const indexFav = favs.findIndex((item) => item.show.id === clickedId);
-  // const indexFav = favs.indexOf(clickedMatch);
   if (indexFav === -1) {
     favs.push(clickedMatch);
     clicked.classList.add('selected');

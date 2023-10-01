@@ -1,7 +1,8 @@
 .page__footer {
+  height: 3vh;
   display: flex;
   align-self: flex-end;
   width: 100%;
-  background-color: $purple;
-  @include sections;
+  background-color: $yellow;
+  @include box;
 }

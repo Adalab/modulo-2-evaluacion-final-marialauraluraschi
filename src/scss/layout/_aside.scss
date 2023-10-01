@@ -1,9 +1,10 @@
 .favs {
-  @include sections;
+  @include text($font-main, 600, 1.5rem, $yellow);
+  @include box;
   text-align: center;
   width: 30%;
   background-color: $lila;
   img{
-    @include images;
+    @include box;
   }
 }
