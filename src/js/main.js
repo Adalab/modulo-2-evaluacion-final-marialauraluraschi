@@ -26,6 +26,7 @@ function handleSearch(event) {
     .then((data) => {
       matches = data;
       renderList(matches, main, 'matches');
+      console.log(matches);
     });
 }
 
