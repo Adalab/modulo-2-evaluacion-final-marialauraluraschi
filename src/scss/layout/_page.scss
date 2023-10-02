@@ -5,6 +5,7 @@ body {
   background: linear-gradient($light-yellow, $yellowT);
 
   ul {
+    width: 100%;
     list-style: none;
     @include center;
     margin-top: 1rem;
@@ -16,7 +17,7 @@ body {
   }
 
   li {
-    width: 90%;
+    width: 95%;
     @media (min-width: 768px) {
       width: 20rem;
     }

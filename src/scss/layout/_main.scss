@@ -2,15 +2,22 @@
   @include text($font-main, 400, 2rem, $light-yellow);
   @include textDeep($blackT, $darkT);
   @include boxDeep($greyT, $blackT);
+  @include center;
   margin: 0.6rem;
   min-height: 75vh;
   width: 62%;
   background: linear-gradient($purple, $lilaT);
   @media (min-width: 768px) {
-    width: 62%;
-    ul.matches {
-      display: flex;
+    width: 67%;
+    ul{
+      width: 100%;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-evenly;
     }
+  }
+  @media (min-width: 1200px) {
+    width: 69%;
   }
 }
 
@@ -20,10 +27,7 @@
   background: radial-gradient($dark, $light-yellowT);
   border: dotted 1rem $yellowT;
   @media (min-width: 768px) {
-    @include text($font-main, 600, 3.5rem, $yellow);
+    @include text($font-main, 600, 2rem, $yellow);
     border: dotted 2rem $yellowT;
-  }
-  @media (min-width: 1200px) {
-    border: dotted 3rem $yellowT;
   }
 }

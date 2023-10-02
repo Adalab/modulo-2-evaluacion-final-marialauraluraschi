@@ -2,7 +2,8 @@
   @include boxDeep($greyT,$blackT);
   margin: 0.6rem;
   padding-left: 1rem;
-  background: linear-gradient(90deg, $yellowT, $yellow, $pinkT);
+  background-image: linear-gradient(90deg, $yellowT, $yellow, $pinkT), 
+  url("./assets/images/film-solid.svg");
   width: 100%;
   min-height: 15vh;
   @media (min-width: 768px) {
@@ -36,8 +37,11 @@
       background-color: $pinkT;
       @include text($font-main, 600, 2rem, $dark);
       @media (min-width: 768px) {
-        @include text($font-main, 600, 4rem, $dark);
+        @include text($font-main, 600, 2.5rem, $dark);
         margin-left: 1rem;
+      }
+      @media (min-width: 1200px) {
+        @include text($font-main, 600, 3rem, $dark);
       }
     }
     &--btn {
@@ -48,7 +52,10 @@
       transition: 0.4s;
       @include text($font-main, 600, 2rem, $dark);
       @media (min-width: 768px) {
-        @include text($font-main, 600, 4rem, $dark);
+        @include text($font-main, 600, 2.5rem, $dark);
+      }
+      @media (min-width: 1200px) {
+        @include text($font-main, 600, 3rem, $dark);
       }
       &:hover{
         @include boxDeep($pink, $lila);
