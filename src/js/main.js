@@ -4,6 +4,7 @@ const searchInput = document.querySelector('.js-search-input');
 const searchBtn = document.querySelector('.js-search-btn');
 const main = document.querySelector('.js-main');
 const aside = document.querySelector('.js-aside');
+const resetBtn = document.querySelector('.js-rst-btn');
 let favs = [];
 let matches = [];
 let inputValue = '';
@@ -83,5 +84,15 @@ function addShowListeners() {
   }
 }
 
+function handleReset() {
+  favs = [];
+  localStorage.removeItem('favoritos');
+  renderList(favs, aside, 'favs');
+}
+
 //*Listener
 searchBtn.addEventListener('click', handleSearch);
+resetBtn.addEventListener('click', handleReset);
+
+
+
