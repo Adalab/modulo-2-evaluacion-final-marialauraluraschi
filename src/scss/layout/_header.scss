@@ -1,31 +1,63 @@
 .header {
-  padding: 0.5rem;
-  @include box;
-  background-color: $yellowT;
+  @include boxDeep($greyT,$blackT);
+  margin: 0.6rem;
+  padding-left: 1rem;
+  background: linear-gradient(90deg, $yellowT, $yellow, $pinkT);
   width: 100%;
-  height: 15vh;
+  min-height: 15vh;
+  @media (min-width: 768px) {
+    min-height: 20vh;
+    padding: 2.5rem;
+  }
+  @media (min-width: 1200px) {
+    min-height: 35vh;
+    padding-left: 5rem;
+  }
   &__title {
-    @include text($font-main, 800, 2.5rem, $purple);
-    @include textDeep ($lilaT, $pinkT);
+    @include text($font-main, 800, 3rem, $purple);
+    @include textDeep($black, $dark);
+    padding: 1rem 0;
+    @media (min-width: 768px) {
+      padding: 0;
+      margin: 1.5rem 0;
+      @include text($font-main, 800, 6rem, $purple);
+    }
   }
   &__search {
     display: flex;
     gap: 1rem;
     margin-top: 0.5rem;
     position: fixed;
+    
     &--input {
       padding: 0 1rem;
       border: none;
       border-radius: 1.5rem;
       background-color: $pinkT;
-      @include text($font-main, 600, 1.5rem, $dark);
+      @include text($font-main, 600, 2rem, $dark);
+      @media (min-width: 768px) {
+        @include text($font-main, 600, 4rem, $dark);
+        margin-left: 1rem;
+      }
     }
     &--btn {
       border: solid 0.1rem $purpleT;
-      border-radius: 3rem;
-      padding: 0.25rem 1rem;
-      @include text($font-main, 800, 1.5rem, $dark);
+      border-radius: 35%;
+      padding: 0.25rem 0.6rem;
       background-color: $pinkT;
+      transition: 0.4s;
+      @include text($font-main, 600, 2rem, $dark);
+      @media (min-width: 768px) {
+        @include text($font-main, 600, 4rem, $dark);
+      }
+      &:hover{
+        @include boxDeep($pink, $lila);
+        border:none;
+        cursor: pointer;
+        transform: scale(1.2);
+        color: $pink;
+        background-color: $purpleT;
+      }
     }
   }
 }

@@ -1,11 +1,13 @@
 .page__footer {
   @include text($font-main, 600, 1.5rem, $purple);
   height: 3vh;
+  padding: 0.25rem;
+  margin: 0.6rem;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   align-self: flex-end;
   background-color: $yellow;
-  @include box;
+  @include boxDeep($greyT,$blackT);
   width: 100%;
 }

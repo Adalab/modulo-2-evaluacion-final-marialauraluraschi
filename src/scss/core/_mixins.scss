@@ -5,30 +5,31 @@
     color: $color;
   }
 
-  @mixin box{
-    width: 80%;
-    margin: 0.3rem;
-    border-radius: 0.3rem;
-    @include boxDeep($dark,$blackT )
-  }
-
   @mixin textDeep ($color1, $color2){
     text-shadow: 0.1rem 0.1rem 0.15rem $color1;
     text-shadow: -0.1rem -0.1rem 0.2rem $color2;
-    text-shadow: -0.1rem 0.1rem 0.3rem $color1;
+    text-shadow: -0.1rem 0.1rem 0.1rem $color1;
     text-shadow: 0.1rem -0.1rem 0.25rem $color2;
     text-shadow: 0.1rem 0 0.2rem $color1;
     text-shadow: -0.1rem 0 0.15rem $color2;
     text-shadow: 0 0.1rem 0.25rem $color1;
-    text-shadow: 0 -0.1rem 0.3rem $color2;
+    text-shadow: 0 -0.1rem 0.1rem $color2;
   }
+
   @mixin boxDeep ($color1, $color2){
-    box-shadow: -0.1rem 0.1rem 0.1rem $color1;
+    box-shadow: -0.1rem 0.1rem 0.3rem $color1;
     box-shadow: -0.1rem -0.1rem 0.2rem $color2;
     box-shadow: 0.1rem 0.1rem 0.15rem $color1;
     box-shadow: 0.1rem -0.1rem 0.25rem $color2;
     box-shadow: 0.1rem 0 0.2rem $color1;
     box-shadow: -0.1rem 0 0.15rem $color2;
     box-shadow: 0 0.1rem 0.25rem $color1;
-    box-shadow: 0 -0.1rem 0.1rem $color2;
+    box-shadow: 0 -0.1rem 0.3rem $color2;
+  }
+
+  @mixin center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }

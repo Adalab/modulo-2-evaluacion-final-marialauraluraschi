@@ -1,12 +1,11 @@
 .favs {
   @include text($font-main, 400, 1.5rem, $yellow);
-  @include textDeep ($purple, $dark);
-  @include box;
-  text-align: center;
+  @include textDeep($purple, $dark);
+  @include boxDeep($greyT, $blackT);
+  margin: 0.6rem;
   width: 30%;
-  background:linear-gradient($lila,$purpleT);
-  img{
-    @include box;
-    margin-top: 3rem;
-  }
+  background: linear-gradient($lila, $pinkT);
+  @media (min-width: 768px) {
+    width: 28%;
+    }
 }
